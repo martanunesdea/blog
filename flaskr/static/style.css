@@ -14,3 +14,12 @@ nav {
 h1, h4, h5, p, ul, li {
   text-align: center;
 }
+
+.card {
+  margin: 0 100px;
+  margin-bottom: 20px;
+}
+
+.label-as-badge {
+  background-color: blue;
+}
