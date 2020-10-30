@@ -25,6 +25,9 @@ h1 {
   margin-bottom: 20px;
 }
 
-.label-as-badge {
-  background-color: blue;
-}
+.btn-success {
+    background-color: gray;
+    border: 0;
+    margin-right: 10px;
+    margin-left: 10px;
+} 
