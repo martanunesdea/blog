@@ -7,8 +7,8 @@ import "./layout.css"
 
 const StyledFooter = styled.footer`
   font-size: 12px;
-  margin: 4vh 5vw;
-  border-top: 1px solid black;
+  margin: 25px 30px 5px 30px;
+  border-top: 2px solid #e6e9ed;
   padding-top: 10px;
   text-align: center;
 `

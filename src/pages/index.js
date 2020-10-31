@@ -21,13 +21,16 @@ const Subtitle = styled.div`
 const CustomBody = styled.div`
   padding: 5px 5px;
   margin 5px 0;
-
-  h3 {
-    margin: 0;
-    margin-top: 50px;
-    margin-bottom: 3px;
-  }
 `
+
+const SectionTitle = styled.h3`
+  margin: 0;
+  margin-top: 50px;
+  margin-bottom: 3px;
+  padding: 10px 0;
+  border-bottom: 3px solid #e6e9ed;
+`
+
 
 const ArticleHeading = styled.div`
   margin: 10px 0;
@@ -93,7 +96,7 @@ const IndexPage = () => (
         </Subtitle>
     </CustomHeader>
     <CustomBody>
-      <h3>Latest articles</h3>
+      <SectionTitle>Latest articles</SectionTitle>
       <ArticleHeading>
         <p class="article-title">Learning Javascript as a C Developer</p>
         <p class="tag-javascript">Javascript</p>
@@ -107,7 +110,7 @@ const IndexPage = () => (
         <p class="tag-python">Python</p>
       </ArticleHeading>
 
-      <h3>Projects</h3>
+      <SectionTitle>Projects</SectionTitle>
       <ArticleHeading>
         <Icon><FontAwesomeIcon icon={faTabletAlt}/></Icon>
         <p class="article-title">Turning a Raspberry Pi into smart home monitor</p>
@@ -121,7 +124,7 @@ const IndexPage = () => (
         <p class="article-title">Air pollution dashboard</p>
       </ArticleHeading>
 
-      <h3>Personal updates</h3>
+      <SectionTitle>Personal updates</SectionTitle>
       <ArticleHeading>
         <p class="article-title">Things I'm learning at the moment</p>
       </ArticleHeading>
