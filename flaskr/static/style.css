@@ -6,7 +6,12 @@ nav {
   background-color: black;
 }
 
-.navbar .navbar-light .navbar-nav .nav-link {
+.navbar-light .navbar-brand {
+  text-decoration: none;
+  color: white;
+}
+
+.navbar-light .nav-item .nav-link{
   text-decoration: none;
   color: white;
 }
@@ -20,6 +25,25 @@ h1 {
   margin-bottom: 20px;
 }
 
+main-title {
+  margin-top: 50px;
+}
+
+sub-title {
+  margin-bottom: 40px; 
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.homepage-single-button {
+  margin: auto 25px;
+}
+.homepage-button-link:hover {
+  text-decoration: none;
+}
+
 .card {
   margin: 0 100px;
   margin-bottom: 20px;
@@ -30,4 +54,13 @@ h1 {
     border: 0;
     margin-right: 10px;
     margin-left: 10px;
-} 
+}
+
+.year-separator {
+  padding: 0;
+  margin: auto;
+  border-bottom: 1px solid gray;
+  text-align: left;
+  padding-left: 10px;
+  max-width: 1140px;
+}
