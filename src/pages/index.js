@@ -9,48 +9,53 @@ import styled from "styled-components"
 
 const CustomMain = styled.main`
   margin: 0 auto;
-  max-width: 800px;
-  padding: 0;
+  padding: 5px 10px;
+  max-width: 1000px;
   text-align: center;
-  h1 {
-    padding: 0;
-    margin: 10vh 0 2vh 0;
-  }
-  h3 {
-    padding: 0;
-    margin: 2vh 0 7vh 0;
-  }
-  h4 {
-    padding: 0;
-    margin: 0;
-  }
-  button {
-    margin: 2vh 0;
-  }
-  ul, li {
-    padding: 0;
-    margin: 0;
-    list-style-type: none;
-  }
+`
+
+const CustomHeader = styled.div`
+  padding: 5px 5px;
+  margin: 5px 0;
+`
+const Title = styled.h1`
+  margin: 30px 0;
+`
+const Subtitle = styled.div`
+  margin: auto;
+  max-width: 700px;
+`
+
+
+const CustomBlogPosts = styled.div`
+  padding: 5px 5px;
+  margin 5px 0;
 `
 
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
     <CustomMain>
-      <h1>Hi there, I'm Marta</h1>
-      <p>A software engineer with an enthusiasm for IoT and data security.</p>
-      <p>This space is intended to store my ideas and ongoing learning progress, as well to distribute any helpful advice and past experience.</p>
-      
-      <h3>Latest blog posts</h3>
-      <p>Insert content here </p>
+      <CustomHeader>
+        <Title>Hi there, I'm Marta</Title>
+        <Subtitle>
+          <p>A software engineer with an enthusiasm for IoT and data security.</p>
+          <p>This space is intended to store my ideas and ongoing learning progress, as well to distribute any helpful advice and past experience.</p>
+        </Subtitle>
+      </CustomHeader>
+      <CustomBlogPosts>
+        <h3>Latest articles</h3>
+        <p>Insert content here </p>
 
-      <h3>Recent projects</h3>
-      <p>Insert content here </p>
+        <h3>Projects</h3>
+        <p>Insert content here </p>
 
-      <h3>About me</h3>
-      <p>I've been a tech geek since I was in school. I  learnt C programming as a first-year university student and since then software and hardware have become my bread and butter.</p>
-    </CustomMain>
+        <h3>Personal posts</h3>
+        <p>Things I'm learning at the moment</p>
+        <p>Things I've learned this month</p>
+        <p>Books I recommend</p>
+      </CustomBlogPosts>
+      </CustomMain>
   </Layout>
 )
 
