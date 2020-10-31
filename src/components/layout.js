@@ -8,25 +8,17 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-
+import styled from "styled-components"
 import Header from "./header"
 import Footer from "./footer"
 import "./layout.css"
 
-import styled from "styled-components"
-
-
 const Body = styled.main`
-  margin: 0 auto;
-  text-align: center;
-  font-family: "Hind";
-
-  h1, h2, h3, h4, h5 {
-    font-family: "Ubuntu";
-    margin: 5vh 0;
-  }
+margin: 0 auto;
+max-width: 700px;
+padding: 5px 10px;
+text-align: center;
 `
-
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -42,7 +34,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header siteTitle={data.site.siteMetadata?.menuLinks || `Blog`} />
-        <main>{children}</main>
+        <Body>{children}</Body>
       <Footer />
     </>
   )

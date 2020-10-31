@@ -39,7 +39,7 @@ const Header = ({ menuLinks }) => (
     </CustomTitle>
 
       <CustomMenu>
-        <CleanLink to="/">
+        <CleanLink to="/articles">
             Articles
         </CleanLink>
         <CleanLink to="/">
