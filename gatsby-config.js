@@ -1,21 +1,16 @@
 module.exports = {
-  pathPrefix: "/website",
   siteMetadata: {
     title: `Marta Nunes de Abreu`,
-    description: `Hi, I'm Marta. A tech and business enthusiast, currently working as a full-time software engineer.`,
-    author: `@gatsbyjs`,
+    description: `A collection of articles reflecting my learning outcomes and project creations.`,
+    author: `Marta`,
     menuLinks:[
-      {
-         name:'Projects',
-         link:'/projects'
-      },
       {
          name:'Blog',
          link:'/blog'
       },
       {
-        name: 'Contact',
-        link: '/contact'
+        name: 'About',
+        link: '/about'
       },
     ],
   },
@@ -28,25 +23,17 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `projects`,
-        path: `${__dirname}/projects-content/`,
-      },
-    },
     `gatsby-transformer-sharp`,
-    `gatsby-transformer-remark`,
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `A website about tech and other things`,
+        short_name: `Marta's tech website`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
-        display: `minimal-ui`,
+        display: `standalone`,
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
