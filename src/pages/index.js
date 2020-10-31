@@ -5,8 +5,7 @@ import SEO from "../components/seo"
 import styled from "styled-components"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faGithub, faTwitter, faLinkedin } from "@fortawesome/free-brands-svg-icons"
-import { faMicrochip } from "@fortawesome/fontawesome-svg-core"
+import { faMicrochip, faTabletAlt, faChartBar } from '@fortawesome/free-solid-svg-icons'
 
 const CustomHeader = styled.div`
   padding: 5px 5px;
@@ -25,7 +24,7 @@ const CustomBody = styled.div`
 
   h3 {
     margin: 0;
-    margin-top: 20px;
+    margin-top: 50px;
     margin-bottom: 3px;
   }
 `
@@ -78,7 +77,7 @@ const ArticleHeading = styled.div`
 `
 
 const Icon = styled.div`
-  padding: 5px;
+  padding: 10px 10px;
   display: inline;
 `
 
@@ -110,25 +109,27 @@ const IndexPage = () => (
 
       <h3>Projects</h3>
       <ArticleHeading>
+        <Icon><FontAwesomeIcon icon={faTabletAlt}/></Icon>
         <p class="article-title">Turning a Raspberry Pi into smart home monitor</p>
       </ArticleHeading>
       <ArticleHeading>
+      <Icon><FontAwesomeIcon icon={faMicrochip}/></Icon>
         <p class="article-title">Voice assistant using an ESP32 microchip</p>
       </ArticleHeading>
       <ArticleHeading>
-        <Icon><FontAwesomeIcon icon={faMicrochip} size="2x"/></Icon>
+      <Icon><FontAwesomeIcon icon={faChartBar}/></Icon>
         <p class="article-title">Air pollution dashboard</p>
       </ArticleHeading>
 
-      <h3>Personal posts</h3>
+      <h3>Personal updates</h3>
       <ArticleHeading>
         <p class="article-title">Things I'm learning at the moment</p>
       </ArticleHeading>
       <ArticleHeading>
-        <p class="article-title">Things I've learned this month</p>
+        <p class="article-title">Podcasts I've recently discovered</p>
       </ArticleHeading>
       <ArticleHeading>
-        <p class="article-title">Books I recommend</p>
+        <p class="article-title">Thoughts and ideas on books I've recently read</p>
       </ArticleHeading>
     </CustomBody>
   </Layout>
