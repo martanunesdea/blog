@@ -30,6 +30,12 @@ const Subtitle = styled.div`
 const CustomBlogPosts = styled.div`
   padding: 5px 5px;
   margin 5px 0;
+
+  h3 {
+    margin: 0;
+    margin-top: 12px;
+    margin-bottom: 3px;
+  }
 `
 
 const IndexPage = () => (
