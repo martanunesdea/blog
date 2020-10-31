@@ -4,6 +4,10 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import styled from "styled-components"
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faGithub, faTwitter, faLinkedin } from "@fortawesome/free-brands-svg-icons"
+import { faMicrochip } from "@fortawesome/fontawesome-svg-core"
+
 const CustomHeader = styled.div`
   padding: 5px 5px;
   margin: 5px 0;
@@ -21,10 +25,63 @@ const CustomBody = styled.div`
 
   h3 {
     margin: 0;
-    margin-top: 12px;
+    margin-top: 20px;
     margin-bottom: 3px;
   }
 `
+
+const ArticleHeading = styled.div`
+  margin: 10px 0;
+  padding: 10px 5px;
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+
+  :hover {
+    background-color: #e6e9ed;
+    border-radius: 5px;
+  }
+
+  .article-title{
+    font-size: 22px;
+    text-align: left;
+    flex: 1;
+  }
+  .tag-javascript {
+    font-size: 14px;
+    padding: 2px 5px;
+    background-color: #faf5c3;
+    border-radius: 5px;
+    margin: 0 1px;
+  }
+  .tag-python {
+    font-size: 14px;
+    padding: 2px 5px;
+    background-color: #cae0ca;
+    border-radius: 5px;
+    margin: 0 1px;
+  }
+  .tag-project {
+    font-size: 14px;
+    margin: 0 1px;
+    padding: 2px 5px;
+    background-color: orange;
+    border-radius: 5px;
+  }
+  .tag-c {
+    font-size: 14px;
+    margin: 0 1px;
+    padding: 2px 5px;
+    background-color: #cedceb;
+    border-radius: 5px;
+  }
+`
+
+const Icon = styled.div`
+  padding: 5px;
+  display: inline;
+`
+
 
 const IndexPage = () => (
   <Layout>
@@ -38,15 +95,41 @@ const IndexPage = () => (
     </CustomHeader>
     <CustomBody>
       <h3>Latest articles</h3>
-      <p>Insert content here </p>
+      <ArticleHeading>
+        <p class="article-title">Learning Javascript as a C Developer</p>
+        <p class="tag-javascript">Javascript</p>
+      </ArticleHeading>
+      <ArticleHeading>
+        <p class="article-title">Categorising images with openCV</p>
+        <p class="tag-python">Python</p>
+      </ArticleHeading>
+      <ArticleHeading>
+        <p class="article-title">Understanding speech with NLP</p>
+        <p class="tag-python">Python</p>
+      </ArticleHeading>
 
       <h3>Projects</h3>
-      <p>Insert content here </p>
+      <ArticleHeading>
+        <p class="article-title">Turning a Raspberry Pi into smart home monitor</p>
+      </ArticleHeading>
+      <ArticleHeading>
+        <p class="article-title">Voice assistant using an ESP32 microchip</p>
+      </ArticleHeading>
+      <ArticleHeading>
+        <Icon><FontAwesomeIcon icon={faMicrochip} size="2x"/></Icon>
+        <p class="article-title">Air pollution dashboard</p>
+      </ArticleHeading>
 
       <h3>Personal posts</h3>
-      <p>Things I'm learning at the moment</p>
-      <p>Things I've learned this month</p>
-      <p>Books I recommend</p>
+      <ArticleHeading>
+        <p class="article-title">Things I'm learning at the moment</p>
+      </ArticleHeading>
+      <ArticleHeading>
+        <p class="article-title">Things I've learned this month</p>
+      </ArticleHeading>
+      <ArticleHeading>
+        <p class="article-title">Books I recommend</p>
+      </ArticleHeading>
     </CustomBody>
   </Layout>
 )

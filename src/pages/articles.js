@@ -11,17 +11,20 @@ const Subheader = styled.div`
 `
 
 const YearHeading = styled.div`
-  margin-top: 30px;
+  margin-top: 20px;
 `
 
 const ArticleHeading = styled.div`
-  border: 1px solid gray;
-  border-radius: 5px;
   margin: 10px 0;
   padding: 10px 5px;
   padding-left: 10px;
   display: flex;
   align-items: center;
+
+  :hover {
+    background-color: #e6e9ed;
+    border-radius: 5px;
+  }
 
   .article-title{
     font-size: 22px;
@@ -31,14 +34,14 @@ const ArticleHeading = styled.div`
   .tag-javascript {
     font-size: 14px;
     padding: 2px 5px;
-    background-color: yellow;
+    background-color: #faf5c3;
     border-radius: 5px;
     margin: 0 1px;
   }
   .tag-python {
     font-size: 14px;
     padding: 2px 5px;
-    background-color: green;
+    background-color: #cae0ca;
     border-radius: 5px;
     margin: 0 1px;
   }
@@ -53,11 +56,10 @@ const ArticleHeading = styled.div`
     font-size: 14px;
     margin: 0 1px;
     padding: 2px 5px;
-    background-color: blue;
+    background-color: #cedceb;
     border-radius: 5px;
   }
 `
-
 
 const Articles = () => (
   <Layout>
