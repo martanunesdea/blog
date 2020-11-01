@@ -28,7 +28,7 @@ const CustomBody = styled.div`
 `
 
 
-const IndexPage = () => (
+const AboutPage = () => (
   <Layout>
     <SEO title="About" />
     <CustomHeader>
@@ -57,4 +57,4 @@ const IndexPage = () => (
   </Layout>
 )
 
-export default IndexPage
+export default AboutPage

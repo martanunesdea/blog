@@ -8,7 +8,7 @@ const CustomNav = styled.header`
   margin: 0 auto;
   padding: 10px 15px;
   text-align: left;
-  background-color: black;
+  background-color: #ced1d6;
   display:flex;
   justify-content: space-between;
   align-items: center;

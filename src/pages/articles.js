@@ -1,5 +1,4 @@
 import React from "react"
-import { Link } from "gatsby"
 import styled from "styled-components"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -49,7 +48,7 @@ const ArticleHeading = styled.div`
     font-size: 14px;
     margin: 0 1px;
     padding: 2px 5px;
-    background-color: orange;
+    background-color: #f7c281;
     border-radius: 5px;
   }
   .tag-c {
@@ -61,7 +60,7 @@ const ArticleHeading = styled.div`
   }
 `
 
-const Articles = () => (
+const ArticlesPage = () => (
   <Layout>
     <SEO title="Articles"/>
       <h1>Articles</h1>
@@ -110,4 +109,4 @@ const Articles = () => (
   </Layout>
 )
 
-export default Articles
+export default ArticlesPage

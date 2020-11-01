@@ -67,7 +67,7 @@ const ArticleHeading = styled.div`
     font-size: 14px;
     margin: 0 1px;
     padding: 2px 5px;
-    background-color: orange;
+    background-color: #f7c281;
     border-radius: 5px;
   }
   .tag-c {

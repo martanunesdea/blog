@@ -9,6 +9,7 @@ exports.components = {
   "component---src-pages-404-js": hot(preferDefault(require("/Users/martanunesdeabreu/website/src/pages/404.js"))),
   "component---src-pages-about-js": hot(preferDefault(require("/Users/martanunesdeabreu/website/src/pages/about.js"))),
   "component---src-pages-articles-js": hot(preferDefault(require("/Users/martanunesdeabreu/website/src/pages/articles.js"))),
-  "component---src-pages-index-js": hot(preferDefault(require("/Users/martanunesdeabreu/website/src/pages/index.js")))
+  "component---src-pages-index-js": hot(preferDefault(require("/Users/martanunesdeabreu/website/src/pages/index.js"))),
+  "component---src-pages-my-files-js": hot(preferDefault(require("/Users/martanunesdeabreu/website/src/pages/my-files.js")))
 }
 
