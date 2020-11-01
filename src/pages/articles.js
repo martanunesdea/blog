@@ -31,33 +31,12 @@ const ArticleHeading = styled.div`
     text-align: left;
     flex: 1;
   }
-  .tag-javascript {
-    font-size: 14px;
-    padding: 2px 5px;
+  .tag {
+    font-size: 13px;
+    padding: 1px 6px;
     background-color: #b3bcc9;
     border-radius: 5px;
-    margin: 0 1px;
-  }
-  .tag-python {
-    font-size: 14px;
-    padding: 2px 5px;
-    background-color: #b3bcc9;
-    border-radius: 5px;
-    margin: 0 1px;
-  }
-  .tag-project {
-    font-size: 14px;
-    margin: 0 1px;
-    padding: 2px 5px;
-    background-color: #b3bcc9;
-    border-radius: 5px;
-  }
-  .tag-c {
-    font-size: 14px;
-    margin: 0 1px;
-    padding: 2px 5px;
-    background-color: #b3bcc9;
-    border-radius: 5px;
+    margin: 0 3px;
   }
 `
 const CleanLink = styled(props => <Link {...props} />)`
@@ -85,35 +64,13 @@ const Articles = ({ data }) => (
             <p class="article-title">
             {node.frontmatter.title}
             </p>
+            <p class="tag">
+            {node.frontmatter.tags}
+            </p>
             </ArticleHeading>
             </CleanLink>
         </div>
       ))}
-
-      <ArticleHeading>
-        <p class="article-title">Raspberry Pi as a smart home monitor</p>
-        <p class="tag-python">Python</p>
-        <p class="tag-project">Project</p>
-      </ArticleHeading>
-      <ArticleHeading>
-        <p class="article-title">Authenticating with Flask</p>
-        <p class="tag-python">Python</p>
-      </ArticleHeading>
-      <ArticleHeading>
-        <p class="article-title">Integrating Flask and SQLit</p>
-        <p class="tag-python">Python</p>
-      </ArticleHeading>
-      <ArticleHeading>
-        <p class="article-title">Voice assistant with an ESP32 microchip</p>
-        <p class="tag-c">C</p>
-        <p class="tag-project">Project</p>
-      </ArticleHeading>
-      <ArticleHeading>
-        <p class="article-title">What to know about wireless comms</p>
-        <p class="tag-c">C</p>
-        <p class="tag-project">IoT</p>
-      </ArticleHeading>
-
   </Layout>
 )
 export default Articles
@@ -126,7 +83,7 @@ export const query = graphql`
           id
           frontmatter {
             title
-            date(formatString: "DD MMMM, YYYY")
+            tags
           }
           fields {
             slug

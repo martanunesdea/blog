@@ -1,6 +1,7 @@
 ---
 title: "Learning Javascript as C developer"
 date: "2020-10-10"
+tags: "Javascript"
 ---
 This post was created with Gatsby!
 
