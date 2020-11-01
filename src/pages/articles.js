@@ -1,4 +1,5 @@
 import React from "react"
+import { Link, graphql } from "gatsby"
 import styled from "styled-components"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -33,14 +34,14 @@ const ArticleHeading = styled.div`
   .tag-javascript {
     font-size: 14px;
     padding: 2px 5px;
-    background-color: #faf5c3;
+    background-color: #b3bcc9;
     border-radius: 5px;
     margin: 0 1px;
   }
   .tag-python {
     font-size: 14px;
     padding: 2px 5px;
-    background-color: #cae0ca;
+    background-color: #b3bcc9;
     border-radius: 5px;
     margin: 0 1px;
   }
@@ -48,19 +49,25 @@ const ArticleHeading = styled.div`
     font-size: 14px;
     margin: 0 1px;
     padding: 2px 5px;
-    background-color: #f7c281;
+    background-color: #b3bcc9;
     border-radius: 5px;
   }
   .tag-c {
     font-size: 14px;
     margin: 0 1px;
     padding: 2px 5px;
-    background-color: #cedceb;
+    background-color: #b3bcc9;
     border-radius: 5px;
   }
 `
+const CleanLink = styled(props => <Link {...props} />)`
+    color: black;
+    text-decoration: none;
+    box-shadow: none;
+`;
 
-const ArticlesPage = () => (
+
+const Articles = ({ data }) => (
   <Layout>
     <SEO title="Articles"/>
       <h1>Articles</h1>
@@ -70,18 +77,19 @@ const ArticlesPage = () => (
       </Subheader>
 
       <YearHeading></YearHeading>
-      <ArticleHeading>
-        <p class="article-title">Learning Javascript as a C Developer</p>
-        <p class="tag-javascript">Javascript</p>
-      </ArticleHeading>
-      <ArticleHeading>
-        <p class="article-title">Categorising images with openCV</p>
-        <p class="tag-python">Python</p>
-      </ArticleHeading>
-      <ArticleHeading>
-        <p class="article-title">Understanding speech with NLP</p>
-        <p class="tag-python">Python</p>
-      </ArticleHeading>
+      {data.allMarkdownRemark.edges.map(({ node }) => (
+        <div key={node.id}>
+              <CleanLink
+              to={node.fields.slug}>
+            <ArticleHeading>
+            <p class="article-title">
+            {node.frontmatter.title}
+            </p>
+            </ArticleHeading>
+            </CleanLink>
+        </div>
+      ))}
+
       <ArticleHeading>
         <p class="article-title">Raspberry Pi as a smart home monitor</p>
         <p class="tag-python">Python</p>
@@ -108,5 +116,24 @@ const ArticlesPage = () => (
 
   </Layout>
 )
-
-export default ArticlesPage
+export default Articles
+export const query = graphql`
+  query {
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+      totalCount
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            date(formatString: "DD MMMM, YYYY")
+          }
+          fields {
+            slug
+          }
+          excerpt
+        }
+      }
+    }
+  }
+`
