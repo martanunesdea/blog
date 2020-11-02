@@ -33,7 +33,7 @@ const ArticleHeading = styled.div`
   }
   .tag {
     font-size: 13px;
-    padding: 1px 6px;
+    padding: 1px 5px;
     background-color: #b3bcc9;
     border-radius: 5px;
     margin: 0 3px;

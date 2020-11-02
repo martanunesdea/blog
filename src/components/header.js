@@ -12,6 +12,9 @@ const CustomNav = styled.header`
   display:flex;
   justify-content: space-between;
   align-items: center;
+  @media only screen and (max-width: 425px) {
+    font-size: 70%;
+  }
 `
 const CustomTitle = styled.div`
   flex: 1;

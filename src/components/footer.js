@@ -21,7 +21,7 @@ const StyledLink = styled.a`
   color: black;
 `
 
-const Footer = ({ children })=> {
+const Footer = ({ children }) => {
   return (
     <StyledFooter>
     <CustomItem>

@@ -8,19 +8,28 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faMicrochip, faTabletAlt, faChartBar } from '@fortawesome/free-solid-svg-icons'
 
 const CustomHeader = styled.div`
-  padding: 5px 5px;
-  margin: 5px 0;
+  padding: 1px 0px;
+  margin: auto;
+  max-width: 650px;
 `
+
 const Title = styled.h1`
   margin: 30px 0;
+  line-height: 40px;
 `
+
 const Subtitle = styled.div`
   margin: auto;
-  max-width: 700px;
 `
+
 const CustomBody = styled.div`
   padding: 5px 5px;
   margin 5px 0;
+  @media only screen and (min-width: 700px) {
+    h1, h2, h3, h4, h5, p, ul, li, a {
+      font-size: 100%;
+    }
+  }
 `
 
 const SectionTitle = styled.h3`
@@ -31,57 +40,55 @@ const SectionTitle = styled.h3`
   border-bottom: 3px solid #e6e9ed;
 `
 
-
 const ArticleHeading = styled.div`
-  margin: 10px 0;
-  padding: 10px 5px;
-  padding-left: 10px;
-  display: flex;
+  margin: 5px 0;
+  padding: 5px 5px;
+  padding-left: 5px;
   align-items: center;
-
-  :hover {
-    background-color: #e6e9ed;
-    border-radius: 5px;
-  }
-
+  border-bottom: 2px solid #e6e9ed;
   .article-title{
-    font-size: 22px;
     text-align: left;
-    flex: 1;
   }
-  .tag-javascript {
-    font-size: 14px;
-    padding: 2px 5px;
-    background-color: #faf5c3;
-    border-radius: 5px;
-    margin: 0 1px;
+  .tag {
+    display: none;
   }
-  .tag-python {
-    font-size: 14px;
-    padding: 2px 5px;
-    background-color: #cae0ca;
-    border-radius: 5px;
-    margin: 0 1px;
-  }
-  .tag-project {
-    font-size: 14px;
-    margin: 0 1px;
-    padding: 2px 5px;
-    background-color: #f7c281;
-    border-radius: 5px;
-  }
-  .tag-c {
-    font-size: 14px;
-    margin: 0 1px;
-    padding: 2px 5px;
-    background-color: #cedceb;
-    border-radius: 5px;
+
+  @media screen and (min-width: 600px) {
+    margin: 10px 0;
+    padding: 10px 5px;
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+    border-bottom: 0px;
+
+    :hover {
+      background-color: #e6e9ed;
+      border-radius: 5px;
+    }
+
+    .article-title{
+      text-align: left;
+      flex: 1;
+    }
+
+    .tag {
+      display: block;
+      font-size: 14px;
+      padding: 2px 5px;
+      background-color: #faf5c3;
+      border-radius: 5px;
+      margin: 0 1px;
+    }
   }
 `
 
 const Icon = styled.div`
+display: none;
+
+  @media screen and (min-width: 600px) {
   padding: 10px 10px;
   display: inline;
+  }
 `
 
 
@@ -99,15 +106,15 @@ const IndexPage = () => (
       <SectionTitle>Latest articles</SectionTitle>
       <ArticleHeading>
         <p class="article-title">Learning Javascript as a C Developer</p>
-        <p class="tag-javascript">Javascript</p>
+        <p class="tag">Javascript</p>
       </ArticleHeading>
       <ArticleHeading>
         <p class="article-title">Categorising images with openCV</p>
-        <p class="tag-python">Python</p>
+        <p class="tag">Python</p>
       </ArticleHeading>
       <ArticleHeading>
         <p class="article-title">Understanding speech with NLP</p>
-        <p class="tag-python">Python</p>
+        <p class="tag">Python</p>
       </ArticleHeading>
 
       <SectionTitle>Projects</SectionTitle>
@@ -120,7 +127,7 @@ const IndexPage = () => (
         <p class="article-title">Voice assistant using an ESP32 microchip</p>
       </ArticleHeading>
       <ArticleHeading>
-      <Icon><FontAwesomeIcon icon={faChartBar}/></Icon>
+       <Icon><FontAwesomeIcon icon={faChartBar}/></Icon>
         <p class="article-title">Air pollution dashboard</p>
       </ArticleHeading>
 
