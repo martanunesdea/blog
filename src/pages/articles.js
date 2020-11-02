@@ -7,7 +7,6 @@ import SEO from "../components/seo"
 const Subheader = styled.div`
   margin: auto;
   max-width: 500px;
-
 `
 
 const YearHeading = styled.div`
@@ -15,30 +14,46 @@ const YearHeading = styled.div`
 `
 
 const ArticleHeading = styled.div`
-  margin: 10px 0;
-  padding: 10px 5px;
-  padding-left: 10px;
-  display: flex;
+  margin: 5px 5px;
+  padding: 5px 5px;
   align-items: center;
-
-  :hover {
-    background-color: #e6e9ed;
-    border-radius: 5px;
-  }
-
+  border-bottom: 2px solid #e6e9ed;
   .article-title{
-    font-size: 22px;
     text-align: left;
-    flex: 1;
   }
   .tag {
-    font-size: 13px;
-    padding: 1px 5px;
-    background-color: #b3bcc9;
-    border-radius: 5px;
-    margin: 0 3px;
+    display: none;
+  }
+
+  @media screen and (min-width: 650px) {
+    margin: 10px 0;
+    padding: 10px 5px;
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+    border-bottom: 0px;
+  
+    :hover {
+      background-color: #e6e9ed;
+      border-radius: 5px;
+    }
+  
+    .article-title{
+      font-size: 22px;
+      text-align: left;
+      flex: 1;
+    }
+    .tag {
+      display: block;
+      font-size: 13px;
+      padding: 1px 5px;
+      background-color: #b3bcc9;
+      border-radius: 5px;
+      margin: 0 3px;
+    }
   }
 `
+
 const CleanLink = styled(props => <Link {...props} />)`
     color: black;
     text-decoration: none;

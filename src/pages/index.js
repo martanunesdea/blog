@@ -14,35 +14,63 @@ const CustomHeader = styled.div`
 `
 
 const Title = styled.h1`
-  margin: 30px 0;
-  line-height: 40px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  line-height: 30px;
+  
+  @media screen and (min-width: 650px) {
+    margin: 30px 0;
+    line-height: 40px;
+  }
 `
 
 const Subtitle = styled.div`
   margin: auto;
+  padding: auto 10px;
+
+  p {
+    padding: 0px auto;
+    line-height: 20px;
+  }
+
+  @media screen and (min-width: 650px) {
+    margin: auto;
+    padding: auto 10px;
+
+    p {
+      line-height: 40px;
+    }
+
+  }
 `
 
 const CustomBody = styled.div`
   padding: 5px 5px;
   margin 5px 0;
-  @media only screen and (min-width: 700px) {
-    h1, h2, h3, h4, h5, p, ul, li, a {
-      font-size: 100%;
-    }
-  }
 `
 
 const SectionTitle = styled.h3`
-  margin: 0;
-  margin-top: 50px;
+  margin: 1px 0;
+  margin-top: 10px;
   margin-bottom: 3px;
-  padding: 10px 0;
-  border-bottom: 3px solid #e6e9ed;
+  padding: 1px 0;
+  border-bottom: 2px solid #e6e9ed;
+
+  @media screen and (min-width: 650px) {
+    margin: 0;
+    margin-top: 50px;
+    margin-bottom: 3px;
+    padding: 10px 0;
+    border-bottom: 3px solid #e6e9ed;
+  }
+
+
+
 `
 
 const ArticleHeading = styled.div`
-  margin: 5px 0;
-  padding: 5px 5px;
+  margin: 1px 0;
+  padding: 2px 3px;
   padding-left: 5px;
   align-items: center;
   border-bottom: 2px solid #e6e9ed;
@@ -98,8 +126,8 @@ const IndexPage = () => (
     <CustomHeader>
         <Title>Hi there, I'm Marta</Title>
         <Subtitle>
-          <p>A software engineer with an enthusiasm for IoT and data security.</p>
-          <p>This space is intended to store my ideas and ongoing learning progress, as well to distribute any helpful advice and past experience.</p>
+          <p class="text">A software engineer with an enthusiasm for IoT and data security.</p>
+          <p class="text">This space is intended to store my ideas and ongoing learning progress, as well to distribute any helpful advice and past experience.</p>
         </Subtitle>
     </CustomHeader>
     <CustomBody>

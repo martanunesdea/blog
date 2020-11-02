@@ -50,8 +50,14 @@ p {
   margin: 0;
   padding: 0;
 }
-@media only screen and (max-width: 480px) {
-  p {
-    font-size: 15px;
+@media only screen and (max-width: 650px) {
+  h4, h5, p, ul, li, a {
+    font-size: 70%;
+  }
+  h2, h3 {
+    font-size: 75%;
+  }
+  h1 {
+    font-size: 100%;
   }
 }
