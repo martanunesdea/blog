@@ -1,6 +1,6 @@
 import React from "react"
+import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
-
 import SEO from "../components/seo"
 import styled from "styled-components"
 
@@ -119,8 +119,15 @@ display: none;
   }
 `
 
+const CleanLink = styled(props => <Link {...props} />)`
+    color: black;
+    text-decoration: none;
+    box-shadow: none;
+`;
 
-const IndexPage = () => (
+
+
+const IndexPage = ({ data }) => (
   <Layout>
     <SEO title="Home" />
     <CustomHeader>
@@ -132,18 +139,21 @@ const IndexPage = () => (
     </CustomHeader>
     <CustomBody>
       <SectionTitle>Latest articles</SectionTitle>
-      <ArticleHeading>
-        <p class="article-title">Learning Javascript as a C Developer</p>
-        <p class="tag">Javascript</p>
-      </ArticleHeading>
-      <ArticleHeading>
-        <p class="article-title">Categorising images with openCV</p>
-        <p class="tag">Python</p>
-      </ArticleHeading>
-      <ArticleHeading>
-        <p class="article-title">Understanding speech with NLP</p>
-        <p class="tag">Python</p>
-      </ArticleHeading>
+      {data.allMarkdownRemark.edges.map(({ node }) => (
+        <div key={node.id}>
+            <CleanLink
+              to={node.fields.slug}>
+            <ArticleHeading>
+            <p class="article-title">
+            {node.frontmatter.title}
+            </p>
+            <p class="tag">
+            {node.frontmatter.tags}
+            </p>
+            </ArticleHeading>
+            </CleanLink>
+        </div>
+      ))}
 
       <SectionTitle>Projects</SectionTitle>
       <ArticleHeading>
@@ -174,3 +184,29 @@ const IndexPage = () => (
 )
 
 export default IndexPage
+
+
+
+export const query = graphql`
+  query {
+    allMarkdownRemark(
+      limit: 3 
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      totalCount
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            tags
+          }
+          fields {
+            slug
+          }
+          excerpt
+        }
+      }
+    }
+  }
+`

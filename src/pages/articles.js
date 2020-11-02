@@ -60,7 +60,6 @@ const CleanLink = styled(props => <Link {...props} />)`
     box-shadow: none;
 `;
 
-
 const Articles = ({ data }) => (
   <Layout>
     <SEO title="Articles"/>
@@ -89,9 +88,11 @@ const Articles = ({ data }) => (
   </Layout>
 )
 export default Articles
+
+
 export const query = graphql`
   query {
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC } ) {
       totalCount
       edges {
         node {
