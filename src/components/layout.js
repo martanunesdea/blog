@@ -15,7 +15,7 @@ import "./layout.css"
 
 const Body = styled.main`
 margin: 0 auto;
-max-width: 700px;
+max-width: 800px;
 padding: 5px 10px;
 text-align: center;
 `

@@ -69,19 +69,21 @@ const SectionTitle = styled.h3`
 `
 
 const ArticleHeading = styled.div`
-  margin: 1px 0;
-  padding: 2px 3px;
-  padding-left: 5px;
+  margin: 0;
+  padding: 0 3px;
+  padding-left: 0px;
   align-items: center;
   border-bottom: 2px solid #e6e9ed;
   .article-title{
+    margin: auto;
+    padding: auto;
     text-align: left;
   }
   .tag {
     display: none;
   }
 
-  @media screen and (min-width: 600px) {
+  @media screen and (min-width: 650px) {
     margin: 10px 0;
     padding: 10px 5px;
     padding-left: 10px;
@@ -113,7 +115,7 @@ const ArticleHeading = styled.div`
 const Icon = styled.div`
 display: none;
 
-  @media screen and (min-width: 600px) {
+  @media screen and (min-width: 650px) {
   padding: 10px 10px;
   display: inline;
   }
@@ -123,6 +125,7 @@ const CleanLink = styled(props => <Link {...props} />)`
     color: black;
     text-decoration: none;
     box-shadow: none;
+    margin: 0px;
 `;
 
 
@@ -204,7 +207,6 @@ export const query = graphql`
           fields {
             slug
           }
-          excerpt
         }
       }
     }

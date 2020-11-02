@@ -14,11 +14,13 @@ const YearHeading = styled.div`
 `
 
 const ArticleHeading = styled.div`
-  margin: 5px 5px;
-  padding: 5px 5px;
+  margin: 0px 5px;
+  padding: 2px 5px;
   align-items: center;
   border-bottom: 2px solid #e6e9ed;
   .article-title{
+    margin: 0;
+    padding: 0;
     text-align: left;
   }
   .tag {
@@ -39,6 +41,8 @@ const ArticleHeading = styled.div`
     }
   
     .article-title{
+      margin: 2px 0;
+      padding: 5px;
       font-size: 22px;
       text-align: left;
       flex: 1;
@@ -66,7 +70,6 @@ const Articles = ({ data }) => (
       <h1>Articles</h1>
       <Subheader>
         <p>A compilation of single-topic posts, tutorials, complete project write-ups and everything in between.</p>
-        <p>Search keywords or phrases to find relevant posts.</p>
       </Subheader>
 
       <YearHeading></YearHeading>
