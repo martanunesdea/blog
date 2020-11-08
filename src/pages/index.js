@@ -5,6 +5,7 @@ import SEO from "../components/seo"
 import Posts from "../components/Posts"
 import styled from "styled-components"
 import { getSimplifiedPosts } from '../utils/helpers'
+import "../components/layout.css"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faMicrochip, faTabletAlt, faChartBar } from '@fortawesome/free-solid-svg-icons'
@@ -123,11 +124,16 @@ display: none;
   }
 `
 
-const CleanLink = styled(props => <Link {...props} />)`
+
+const ButtonLink = styled(props => <Link {...props} />)`
     color: black;
     text-decoration: none;
     box-shadow: none;
+    background: #e6e9ed;
     margin: 0px;
+    padding: 0px;
+    line-height: 16px;
+    float: right;
 `;
 
 
@@ -138,15 +144,15 @@ export default function IndexPage ({ data })  {
   getSimplifiedPosts(latest), [latest])
   
   const Section = ({ title, children, button, ...props }) => (
-    <section {...props}>
-      <h3>
-        {title}
+    <section>
+      <div {...props}>
+        <h3 className="section-title">{title}</h3>
         {button && (
-          <Link className="section-button" to="/articles">
-            View all
-          </Link>
+            <ButtonLink to="/articles">
+              View all
+            </ButtonLink>
         )}
-      </h3>
+      </div>
       {children}
     </section>
   )

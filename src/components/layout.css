@@ -46,6 +46,23 @@ a {
   background-color: transparent;
   -webkit-text-decoration-skip: objects;
 }
+
+a.section-button {
+  font-weight: 500;
+  background: #e6e9ed;
+  color: black;
+  padding: 0.4rem 0.6rem;
+  font-size: 0.8rem;
+  border-radius: 0.3rem;
+  border-width: 0 !important;
+  white-space: nowrap;
+  line-height: 1;
+  text-decoration: none;
+}
+
+a.section-button:hover {
+  background: #b3bcc9;
+}
 @media only screen and (max-width: 650px) {
   h4, h5, p, ul, li {
     font-size: 75%;
