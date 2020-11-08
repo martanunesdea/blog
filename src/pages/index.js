@@ -1,8 +1,10 @@
-import React from "react"
+import React, {useMemo} from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Posts from "../components/Posts"
 import styled from "styled-components"
+import { getSimplifiedPosts } from '../utils/helpers'
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faMicrochip, faTabletAlt, faChartBar } from '@fortawesome/free-solid-svg-icons'
@@ -130,7 +132,26 @@ const CleanLink = styled(props => <Link {...props} />)`
 
 
 
-const IndexPage = ({ data }) => (
+export default function IndexPage ({ data })  {
+  const latest = data.latest.edges
+  const simplifiedLatest = useMemo(() =>
+  getSimplifiedPosts(latest), [latest])
+  
+  const Section = ({ title, children, button, ...props }) => (
+    <section {...props}>
+      <h3>
+        {title}
+        {button && (
+          <Link className="section-button" to="/articles">
+            View all
+          </Link>
+        )}
+      </h3>
+      {children}
+    </section>
+  )
+
+  return (
   <Layout>
     <SEO title="Home" />
     <CustomHeader>
@@ -141,22 +162,9 @@ const IndexPage = ({ data }) => (
         </Subtitle>
     </CustomHeader>
     <CustomBody>
-      <SectionTitle>Latest articles</SectionTitle>
-      {data.allMarkdownRemark.edges.map(({ node }) => (
-        <div key={node.id}>
-            <CleanLink
-              to={node.fields.slug}>
-            <ArticleHeading>
-            <p class="article-title">
-            {node.frontmatter.title}
-            </p>
-            <p class="tag">
-            {node.frontmatter.tags}
-            </p>
-            </ArticleHeading>
-            </CleanLink>
-        </div>
-      ))}
+      <Section title="Latest articles" button>
+        <Posts data={simplifiedLatest}/>
+      </Section>
 
       <SectionTitle>Projects</SectionTitle>
       <ArticleHeading>
@@ -184,15 +192,15 @@ const IndexPage = ({ data }) => (
       </ArticleHeading>
     </CustomBody>
   </Layout>
-)
+  )
+}
 
-export default IndexPage
 
 
 
 export const query = graphql`
-  query {
-    allMarkdownRemark(
+  query IndexQuery {
+    latest: allMarkdownRemark(
       limit: 3 
       sort: { fields: [frontmatter___date], order: DESC }
     ) {

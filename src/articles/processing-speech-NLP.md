@@ -2,6 +2,7 @@
 title: "Building a lightweight server-side application with SQLite"
 date: "2020-10-15"
 tags: "Python"
+category: "article"
 ---
 This is going to a short article about how I've used SQLite3 in Python to make a server-side application that communicated with a database.
 
