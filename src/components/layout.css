@@ -63,6 +63,7 @@ a.section-button {
 a.section-button:hover {
   background: #b3bcc9;
 }
+
 @media only screen and (max-width: 650px) {
   h4, h5, p, ul, li {
     font-size: 75%;

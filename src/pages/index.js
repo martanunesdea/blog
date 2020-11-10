@@ -130,11 +130,29 @@ const ButtonLink = styled(props => <Link {...props} />)`
     text-decoration: none;
     box-shadow: none;
     background: #e6e9ed;
-    margin: 0px;
-    padding: 0px;
-    line-height: 16px;
-    float: right;
+    font-size: 18px;
+    line-height: 14px;
+    padding: 1.5px 3px;
+    border-radius: 4px;
 `;
+
+const SectionTitleDiv = styled.div`
+  display: grid;
+  grid-template-columns: 75px 620px 75px;
+  grid-template-rows: auto auto auto;
+  padding: 0;
+  margin: 0 auto;
+  border-bottom: 3px solid #e6e9ed;
+  .item-1, .item-2, .item-3 {
+    margin-bottom: 0px;
+    padding: 0px;
+  }
+  .item-3 {
+    text-align: center;
+    justify-content: center;
+    margin: auto 0px;
+  }
+`
 
 
 
@@ -145,14 +163,17 @@ export default function IndexPage ({ data })  {
   
   const Section = ({ title, children, button, ...props }) => (
     <section>
-      <div {...props}>
-        <h3 className="section-title">{title}</h3>
+      <SectionTitleDiv {...props}>
+        <div class="item-1"></div>
+        <div class="item-2"><h3 className="section-title">{title}</h3></div>
+        <div class="item-3"> 
         {button && (
             <ButtonLink to="/articles">
               View all
             </ButtonLink>
         )}
-      </div>
+        </div>
+      </SectionTitleDiv>
       {children}
     </section>
   )
