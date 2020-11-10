@@ -140,12 +140,15 @@ const SectionTitleDiv = styled.div`
   display: grid;
   grid-template-columns: 75px 620px 75px;
   grid-template-rows: auto auto auto;
-  padding: 0;
-  margin: 0 auto;
+  padding-bottom: 10px;
+  margin: 5px auto;
   border-bottom: 3px solid #e6e9ed;
   .item-1, .item-2, .item-3 {
     margin-bottom: 0px;
     padding: 0px;
+    h3{
+      margin: auto;
+    }
   }
   .item-3 {
     text-align: center;
