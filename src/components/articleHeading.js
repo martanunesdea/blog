@@ -6,14 +6,13 @@ import styled from "styled-components"
 
 
 const Heading = styled.div`
-margin: 0;
-padding: 0 3px;
-padding-left: 0px;
-align-items: center;
+margin: 0px 5px;
+padding: 0px 5px;
+text-align: left;
 border-bottom: 2px solid #e6e9ed;
 .article-title{
-  margin: auto;
-  padding: auto;
+  margin: 0;
+  padding: 0;
   text-align: left;
 }
 .tag {
@@ -34,17 +33,19 @@ border-bottom: 2px solid #e6e9ed;
   }
 
   .article-title{
+    margin: 2px 0;
+    padding: 5px;
+    font-size: 22px;
     text-align: left;
     flex: 1;
   }
-
   .tag {
     display: block;
-    font-size: 14px;
-    padding: 2px 5px;
-    background-color: #faf5c3;
+    font-size: 13px;
+    padding: 1px 5px;
+    background-color: #b3bcc9;
     border-radius: 5px;
-    margin: 0 1px;
+    margin: 0 3px;
   }
 }
 `

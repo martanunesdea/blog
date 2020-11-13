@@ -7,9 +7,6 @@ import styled from "styled-components"
 import { getSimplifiedPosts } from '../utils/helpers'
 import "../components/layout.css"
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faMicrochip, faTabletAlt, faChartBar } from '@fortawesome/free-solid-svg-icons'
-
 const CustomHeader = styled.div`
   padding: 1px 0px;
   margin: auto;
@@ -66,9 +63,6 @@ const SectionTitle = styled.h3`
     padding: 10px 0;
     border-bottom: 3px solid #e6e9ed;
   }
-
-
-
 `
 
 const ArticleHeading = styled.div`
@@ -115,15 +109,15 @@ const ArticleHeading = styled.div`
   }
 `
 
+/* 
 const Icon = styled.div`
-display: none;
+  display: none;
 
   @media screen and (min-width: 650px) {
   padding: 10px 10px;
   display: inline;
   }
-`
-
+`   */
 
 const ButtonLink = styled(props => <Link {...props} />)`
     color: black;
@@ -137,13 +131,13 @@ const ButtonLink = styled(props => <Link {...props} />)`
 `;
 
 const SectionTitleDiv = styled.div`
-  display: grid;
-  grid-template-columns: 75px 620px 75px;
-  grid-template-rows: auto auto auto;
-  padding-bottom: 10px;
+  display: inline-block;
+  padding-bottom: 5px;
   margin: 5px auto;
   border-bottom: 3px solid #e6e9ed;
-  .item-1, .item-2, .item-3 {
+  text-align: left
+  .item1, .item-2, .item-3 {
+    display: inline-block;
     margin-bottom: 0px;
     padding: 0px;
     h3{
@@ -155,9 +149,30 @@ const SectionTitleDiv = styled.div`
     justify-content: center;
     margin: auto 0px;
   }
+
+  @media screen and (min-width: 750px) {
+    display: grid;
+    grid-template-columns: 75px 620px 75px;
+    grid-template-rows: auto auto auto;
+    padding-bottom: 10px;
+    margin: 5px auto;
+    border-bottom: 3px solid #e6e9ed;
+    .item-1, .item-2, .item-3 {
+      margin-bottom: 0px;
+      padding: 0px;
+      h3{
+        margin: auto;
+      }
+    }
+    .item-3 {
+      text-align: center;
+      justify-content: center;
+      margin: auto 0px;
+    }
+  }
+
+
 `
-
-
 
 export default function IndexPage ({ data })  {
   const latest = data.latest.edges
@@ -187,8 +202,8 @@ export default function IndexPage ({ data })  {
     <CustomHeader>
         <Title>Hi there, I'm Marta</Title>
         <Subtitle>
-          <p class="text">A software engineer with an enthusiasm for IoT and data security.</p>
-          <p class="text">This space is intended to store my ideas and ongoing learning progress, as well to distribute any helpful advice and past experience.</p>
+          <p>A software engineer with an enthusiasm for IoT and data security.</p>
+          <p>This space is intended to store my ideas and ongoing learning progress, as well to distribute any helpful advice and past experience.</p>
         </Subtitle>
     </CustomHeader>
     <CustomBody>
@@ -198,15 +213,12 @@ export default function IndexPage ({ data })  {
 
       <SectionTitle>Projects</SectionTitle>
       <ArticleHeading>
-        <Icon><FontAwesomeIcon icon={faTabletAlt}/></Icon>
         <p class="article-title">Turning a Raspberry Pi into smart home monitor</p>
       </ArticleHeading>
       <ArticleHeading>
-      <Icon><FontAwesomeIcon icon={faMicrochip}/></Icon>
         <p class="article-title">Voice assistant using an ESP32 microchip</p>
       </ArticleHeading>
       <ArticleHeading>
-       <Icon><FontAwesomeIcon icon={faChartBar}/></Icon>
         <p class="article-title">Air pollution dashboard</p>
       </ArticleHeading>
 
