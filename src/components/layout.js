@@ -17,7 +17,11 @@ const Body = styled.main`
 margin: 0 auto;
 max-width: 800px;
 padding: 5px 10px;
-text-align: center;
+text-align: left;
+
+@media screen and (min-width: 800px) {
+  text-align: center;
+}
 `
 
 const Layout = ({ children }) => {

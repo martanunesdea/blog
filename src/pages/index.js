@@ -124,25 +124,38 @@ const ButtonLink = styled(props => <Link {...props} />)`
     text-decoration: none;
     box-shadow: none;
     background: #e6e9ed;
-    font-size: 18px;
-    line-height: 14px;
-    padding: 1.5px 3px;
+    font-size: 14px;
+    line-height: 12px;
+    padding: 1px 2px;
     border-radius: 4px;
+
+    @media screen and (min-width: 800px) {
+      color: black;
+      text-decoration: none;
+      box-shadow: none;
+      background: #e6e9ed;
+      font-size: 18px;
+      line-height: 14px;
+      padding: 1.5px 3px;
+      border-radius: 4px;
+    }
 `;
 
 const SectionTitleDiv = styled.div`
-  display: inline-block;
+  display: grid;
+  grid-template-columns: 0px 175px 75px;
+  grid-template-rows: auto auto auto;
   padding-bottom: 5px;
-  margin: 5px auto;
+  margin: 0;
   border-bottom: 3px solid #e6e9ed;
   text-align: left
   .item1, .item-2, .item-3 {
     display: inline-block;
     margin-bottom: 0px;
-    padding: 0px;
-    h3{
-      margin: auto;
-    }
+    padding: 0;
+  }
+  h3 {
+    margin: 0;
   }
   .item-3 {
     text-align: center;
@@ -150,7 +163,7 @@ const SectionTitleDiv = styled.div`
     margin: auto 0px;
   }
 
-  @media screen and (min-width: 750px) {
+  @media screen and (min-width: 800px) {
     display: grid;
     grid-template-columns: 75px 620px 75px;
     grid-template-rows: auto auto auto;
