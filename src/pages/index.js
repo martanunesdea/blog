@@ -36,77 +36,15 @@ const Subtitle = styled.div`
   @media screen and (min-width: 650px) {
     margin: auto;
     padding: auto 10px;
-
     p {
       line-height: 40px;
     }
-
   }
 `
 
 const CustomBody = styled.div`
   padding: 5px 5px;
   margin 5px 0;
-`
-
-const SectionTitle = styled.h3`
-  margin: 1px 0;
-  margin-top: 10px;
-  margin-bottom: 3px;
-  padding: 1px 0;
-  border-bottom: 2px solid #e6e9ed;
-
-  @media screen and (min-width: 650px) {
-    margin: 0;
-    margin-top: 50px;
-    margin-bottom: 3px;
-    padding: 10px 0;
-    border-bottom: 3px solid #e6e9ed;
-  }
-`
-
-const ArticleHeading = styled.div`
-  margin: 0;
-  padding: 0 3px;
-  padding-left: 0px;
-  align-items: center;
-  border-bottom: 2px solid #e6e9ed;
-  .article-title{
-    margin: auto;
-    padding: auto;
-    text-align: left;
-  }
-  .tag {
-    display: none;
-  }
-
-  @media screen and (min-width: 650px) {
-    margin: 10px 0;
-    padding: 10px 5px;
-    padding-left: 10px;
-    display: flex;
-    align-items: center;
-    border-bottom: 0px;
-
-    :hover {
-      background-color: #e6e9ed;
-      border-radius: 5px;
-    }
-
-    .article-title{
-      text-align: left;
-      flex: 1;
-    }
-
-    .tag {
-      display: block;
-      font-size: 14px;
-      padding: 2px 5px;
-      background-color: #faf5c3;
-      border-radius: 5px;
-      margin: 0 1px;
-    }
-  }
 `
 
 /* 
@@ -147,6 +85,7 @@ const SectionTitleDiv = styled.div`
   grid-template-rows: auto auto auto;
   padding-bottom: 5px;
   margin: 0;
+  margin-top: 20px;
   border-bottom: 3px solid #e6e9ed;
   text-align: left
   .item1, .item-2, .item-3 {
@@ -169,6 +108,7 @@ const SectionTitleDiv = styled.div`
     grid-template-rows: auto auto auto;
     padding-bottom: 10px;
     margin: 5px auto;
+    margin-top: 40px;
     border-bottom: 3px solid #e6e9ed;
     .item-1, .item-2, .item-3 {
       margin-bottom: 0px;
@@ -183,20 +123,26 @@ const SectionTitleDiv = styled.div`
       margin: auto 0px;
     }
   }
-
-
 `
 
 export default function IndexPage ({ data })  {
   const latest = data.latest.edges
   const simplifiedLatest = useMemo(() =>
   getSimplifiedPosts(latest), [latest])
+
+  const projects = data.projects.edges
+  const simplifiedProjects = useMemo(() =>
+  getSimplifiedPosts(projects), [projects])
+
+  const personal = data.personal.edges
+  const simplifiedPersonal = useMemo(() =>
+  getSimplifiedPosts(personal), [personal])
   
   const Section = ({ title, children, button, ...props }) => (
     <section>
       <SectionTitleDiv {...props}>
         <div class="item-1"></div>
-        <div class="item-2"><h3 className="section-title">{title}</h3></div>
+        <div class="item-2"><h3>{title}</h3></div>
         <div class="item-3"> 
         {button && (
             <ButtonLink to="/articles">
@@ -224,40 +170,63 @@ export default function IndexPage ({ data })  {
         <Posts data={simplifiedLatest}/>
       </Section>
 
-      <SectionTitle>Projects</SectionTitle>
-      <ArticleHeading>
-        <p class="article-title">Turning a Raspberry Pi into smart home monitor</p>
-      </ArticleHeading>
-      <ArticleHeading>
-        <p class="article-title">Voice assistant using an ESP32 microchip</p>
-      </ArticleHeading>
-      <ArticleHeading>
-        <p class="article-title">Air pollution dashboard</p>
-      </ArticleHeading>
+      <Section title="Projects" button>
+        <Posts data={simplifiedProjects}/>
+      </Section>
 
-      <SectionTitle>Personal updates</SectionTitle>
-      <ArticleHeading>
-        <p class="article-title">Things I'm learning at the moment</p>
-      </ArticleHeading>
-      <ArticleHeading>
-        <p class="article-title">Podcasts I've recently discovered</p>
-      </ArticleHeading>
-      <ArticleHeading>
-        <p class="article-title">Thoughts and ideas on books I've recently read</p>
-      </ArticleHeading>
+      <Section title="Personal updates" button>
+        <Posts data={simplifiedPersonal}/>
+      </Section>
+
     </CustomBody>
   </Layout>
   )
 }
-
-
-
 
 export const query = graphql`
   query IndexQuery {
     latest: allMarkdownRemark(
       limit: 3 
       sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { category: { eq: "article" } } }
+    ) {
+      totalCount
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            tags
+          }
+          fields {
+            slug
+          }
+        }
+      }
+    }
+    projects: allMarkdownRemark(
+      limit: 3 
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { category: { eq: "project" } } }
+    ) {
+      totalCount
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            tags
+          }
+          fields {
+            slug
+          }
+        }
+      }
+    }
+    personal: allMarkdownRemark(
+      limit: 3 
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { category: { eq: "opinion" } } }
     ) {
       totalCount
       edges {
