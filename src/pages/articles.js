@@ -114,7 +114,7 @@ export default function Articles ({ data }) {
       </Subheader>
 
       <YearHeading></YearHeading>
-      <Section title="Articles" button>
+      <Section title="Articles">
         <Posts data={simplifiedArticles}/>
       </Section>
   </Layout>)

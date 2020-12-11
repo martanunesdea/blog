@@ -170,11 +170,11 @@ export default function IndexPage ({ data })  {
         <Posts data={simplifiedLatest}/>
       </Section>
 
-      <Section title="Projects" button>
+      <Section title="Projects">
         <Posts data={simplifiedProjects}/>
       </Section>
 
-      <Section title="Personal updates" button>
+      <Section title="Personal updates">
         <Posts data={simplifiedPersonal}/>
       </Section>
 
